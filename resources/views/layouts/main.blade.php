@@ -40,7 +40,8 @@
                 </div>
                 <div class="col-lg-6 col-md-8">
                     <div class="top_right">
-                        <div class="topbar_phone"><a href="#"><i class="fas fa-phone-alt" aria-hidden="true"></i> (770) 123 4657 </a></div>
+                        <div class="topbar_phone mr-4"><a href="{{ route('login') }}">Login </a></div>
+                        <div class="topbar_phone"><a href="{{ route('register') }}">Register </a></div>
                     </div>
                 </div>
             </div>
