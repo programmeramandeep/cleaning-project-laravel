@@ -69,38 +69,18 @@
 
             <!--Row Start-->
             <ul class="row">
-                <!--col-lg-4 Start-->
-                <li class="col-lg-4">
-                    <div class="services_box wow fadeInUp">
-                        <div class="servicesImg"><img alt="" src="images/servicesImg01.jpg"></div>
-                        <div class="service-price"><span>$230-$7200</span></div>
-                        <h3><a href="#">Residential Cleaning Services</a></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus vulputate nunc, eu imperdiet metus finibus eu.</p>
-                    </div>
-                </li>
-                <!--col-lg-4 End-->
-
-                <!--col-lg-4 Start-->
-                <li class="col-lg-4">
-                    <div class="services_box wow fadeInUp">
-                        <div class="servicesImg"><img alt="" src="images/servicesImg02.jpg"></div>
-                        <div class="service-price"><span>$230-$7200</span></div>
-                        <h3><a href="#">Commercial Cleaning Services</a></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus vulputate nunc, eu imperdiet metus finibus eu.</p>
-                    </div>
-                </li>
-                <!--col-lg-4 End-->
-
-                <!--col-lg-4 Start-->
-                <li class="col-lg-4">
-                    <div class="services_box wow fadeInUp">
-                        <div class="servicesImg"><img alt="" src="images/servicesImg03.jpg"></div>
-                        <div class="service-price"><span>$230-$7200</span></div>
-                        <h3><a href="#">Office Cleaning Services</a></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus vulputate nunc, eu imperdiet metus finibus eu.</p>
-                    </div>
-                </li>
-                <!--col-lg-4 End-->
+                @foreach ($services as $service)
+                    <!--col-lg-4 Start-->
+                    <li class="col-lg-4">
+                        <div class="services_box wow fadeInUp">
+                            <div class="servicesImg"><img alt="" src="{{ $service->image }}"></div>
+                            <div class="service-price"><span>{{ $service->label }}</span></div>
+                            <h3><a href="#">{{ Str::limit($service->title, 20) }}</a></h3>
+                            <p>{{ Str::limit($service->description, 100) }}</p>
+                        </div>
+                    </li>
+                    <!--col-lg-4 End-->
+                @endforeach
             </ul>
             <!--Row End-->
 
