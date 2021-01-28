@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -38,3 +39,18 @@ Route::post('/email/verification-notification', function (Request $request) {
 
     return back()->with('status', 'verification-link-sent');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+// Get all the services
+Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
+// Create service route
+Route::get('/services/create', [ServiceController::class, 'create'])->name('services.create');
+// Store service route
+Route::post('/services', [ServiceController::class, 'store'])->name('services.store');
+// Edit service route
+Route::get('/services/{service}/edit', [ServiceController::class, 'edit'])->name('services.edit');
+// Update service route
+Route::put('/services/{service}/update', [ServiceController::class, 'update'])->name('services.update');
+// Show service route
+Route::get('/services/{service}/show', [ServiceController::class, 'show'])->name('services.show');
+// delete service route
+Route::delete('/services/{service}', [ServiceController::class, 'destroy'])->name('services.destroy');
