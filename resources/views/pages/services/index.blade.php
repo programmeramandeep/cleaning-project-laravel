@@ -7,6 +7,8 @@
             <div class="card">
                 <div class="card-header">
                     Services Listing
+
+                    <a href="{{ route('services.create') }}" class="btn btn-primary btn-sm float-right">Add New Service</a>
                 </div>
 
                 <div class="card-body">
@@ -16,7 +18,7 @@
                                 <tr>
                                     <th>Id No.</th>
                                     <th>Title</th>
-                                    <th>label</th>
+                                    <th>Label</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -25,7 +27,7 @@
                                 @forelse ($services as $index => $service)
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
-                                        <td>{{ $service->title }}</td>
+                                        <td>{{ Str::limit($service->title, 40) }}</td>
                                         <td>{{ $service->label }}</td>
                                         <td>
                                             <a href="" class="btn btn-primary btn-sm">View</a>

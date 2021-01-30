@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ServiceRequest;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ServiceController extends Controller
 {
@@ -26,7 +28,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.services.create');
     }
 
     /**
@@ -35,9 +37,18 @@ class ServiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ServiceRequest $request)
     {
-        //
+        $request->image = Storage::putFile('public/services', $request->file('image'));
+
+        Service::create([
+            'title'         => $request->title,
+            'label'         => $request->label,
+            'description'   => $request->description,
+            'image'         => $request->image,
+        ]);
+
+        return back()->with('status', 'Services created successfully');
     }
 
     /**
@@ -69,7 +80,7 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ServiceRequest $request, $id)
     {
         //
     }
