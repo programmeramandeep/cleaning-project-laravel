@@ -6,7 +6,9 @@
 		<div class="col-md-12">
 			<div class="card">
 				<div class="card-header">
-					Add Service Form
+                    Add Service Form
+
+                    <a href="{{ route('services.index') }}" class="btn btn-primary btn-sm float-right">Back</a>
 				</div>
 
 				<div class="card-body">
@@ -64,9 +66,9 @@
 							<button type="submit" class="btn btn-dark btn-sm">Save</button>
 							<button type="reset" class="btn btn-secondary btn-sm">Reset</button>
 						</div>
-					</div>					
+					</div>
 				</form>
-			</div>			
+			</div>
 		</div>
 	</div>
 </div>

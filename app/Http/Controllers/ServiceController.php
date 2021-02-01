@@ -57,9 +57,9 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Service $service)
     {
-        //
+        return view('pages.services.show', compact('service'));
     }
 
     /**
@@ -68,9 +68,9 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Service $service)
     {
-        //
+        return view('pages.services.edit', compact('service'));
     }
 
     /**
@@ -91,8 +91,10 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Service $service)
     {
-        //
+        $service->delete();
+
+        return back()->with('status', 'Service Deleted Successfully');
     }
 }
