@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Storage;
 
 class ServiceController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -82,7 +86,22 @@ class ServiceController extends Controller
      */
     public function update(ServiceRequest $request, $id)
     {
-        //
+        if ($request->file('image') !== null) {
+            $request->image = Storage::putFile('public/services', $request->file('image'));
+            Storage::delete($request->old_image);
+        } else {
+            $request->image = $request->old_image;
+        }
+
+        Service::where('id', $id)->update([
+            'title' => $request->title,
+            'label' => $request->label,
+            'description' => $request->description,
+            'image' => $request->image,
+
+        ]);
+
+        return back()->with('status', 'Services updated successfully');
     }
 
     /**
