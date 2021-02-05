@@ -55,7 +55,8 @@
             <div class="row">
                 <div class="col-lg-3 navbar navbar-expand-lg navbar-light">
                     <div class="header_logo"><a href="#"><img alt="" src="images/logo.png"></a></div>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span
+                            class="navbar-toggler-icon"></span> </button>
                 </div>
                 <div class="col-lg-9">
                     <nav class="navbar navbar-expand-lg navbar-light"> <a class="navbar-brand" href="#">Navbar</a>
@@ -101,7 +102,7 @@
                                         <li><a href="blog_single.html">Blog Single</a></li>
                                     </ul>
                                 </li>
-                                <li class="nav-item"><a class="nav-link" href="contact.html"> Contact Us</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('contact.page') }}"> Contact Us</a></li>
                             </ul>
                         </div>
                     </nav>

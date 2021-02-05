@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -55,3 +56,6 @@ Route::put('/services/{service}/update', [ServiceController::class, 'update'])->
 Route::get('/services/{service}/show', [ServiceController::class, 'show'])->name('services.show');
 // delete service route
 Route::delete('/services/{service}', [ServiceController::class, 'destroy'])->name('services.destroy');
+
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.page');
+Route::post('/contact', [ContactController::class, 'contact_request'])->name('contact.request');
