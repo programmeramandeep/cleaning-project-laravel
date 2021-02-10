@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -59,3 +60,8 @@ Route::delete('/services/{service}', [ServiceController::class, 'destroy'])->nam
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.page');
 Route::post('/contact', [ContactController::class, 'contact_request'])->name('contact.request');
+
+// For displaying booking form
+Route::get('/booking', [ContactController::class, 'booking'])->name('booking');
+// For request or sending mail to the customer
+Route::post('/booking', [ContactController::class, 'booking_request'])->name('booking.request');

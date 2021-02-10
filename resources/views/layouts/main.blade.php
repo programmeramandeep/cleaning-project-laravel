@@ -103,6 +103,7 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('contact.page') }}"> Contact Us</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('booking') }}">Booking</a></li>
                             </ul>
                         </div>
                     </nav>
